@@ -1,0 +1,14 @@
+schema_version: 20240701
+name: apicaapp
+version: 0.0.20
+runtime: python
+build_image: fnproject/python:3.11-dev
+run_image: fnproject/python:3.11
+entrypoint: /python/bin/fdk /function/func.py handler
+memory: 1024
+timeout: 120
+config:
+  APICA_APPNAME: OCI-logs
+  APICA_HOST: <end_point, e.g. https://loadtest.apica.io:443/v1/json_batch>
+  APICA_NAMESPACE: ORACLE_CLOUD
+  APICA_TOKEN: Bearer <ingest_token>
